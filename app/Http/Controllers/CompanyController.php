@@ -17,7 +17,7 @@ class CompanyController extends Controller
     public function index(): View
     {
         return view("companies.index", [
-            'companies' => Company::paginate(5)
+            'companies' => Company::paginate(8)
         ]);
     }
 

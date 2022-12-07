@@ -12,11 +12,12 @@
         <table class="table table-striped table-hover mt-3">
             <thead>
             <tr>
-                <th scope="col">Imię</th>
-                <th scope="col">Nazwisko</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
                 <th scope="col">Email</th>
-                <th scope="col">Numer telefonu</th>
-                <th scope="col">Firma</th>
+                <th scope="col">Phone number</th>
+                <th scope="col">Company</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -26,7 +27,7 @@
                         <td>{{ $worker->surname }}</td>
                         <td>{{ $worker->email }}</td>
                         <td>{{ $worker->phone_number }}</td>
-                        <td>{{ $worker->company }}</td>
+                        <td>{{ $worker->company->name }}</td>
                         <td>
                             <a href="{{route('workers.edit', $worker->id)}}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
                             <a href="{{route('workers.destroy', $worker->id)}}"><button class="btn btn-danger btn-sm" data-id="{{ $worker->id }}">Delete</button></a>

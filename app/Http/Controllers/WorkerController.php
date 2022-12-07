@@ -11,34 +11,20 @@ use Illuminate\Support\Facades\DB;
 
 class WorkerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return View
-     */
+
     public function index(): View
     {
         return view("workers.index", [
-            'workers' => worker::paginate(5)
+            'workers' => worker::paginate(8)
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return View
-     */
     public function create(): View
     {
-        $companies = DB::table('companies')->get('name');
+        $companies = DB::table('companies')->get();
         return view("workers.create")->with('companies', $companies);
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return RedirectResponse
-     */
+
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -52,27 +38,14 @@ class WorkerController extends Controller
         return redirect(route('workers.index'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  Worker  $worker
-     * @return View
-     */
     public function edit(Worker $worker): View
     {
-        $companies = DB::table('companies')->get('name');
+        $companies = DB::table('companies')->get();
         return view("workers.edit", [
             'worker' => $worker
         ])->with('companies', $companies);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  Worker  $worker
-     * @return RedirectResponse
-     */
     public function update(Request $request, Worker $worker): RedirectResponse
     {
         $worker->fill($request->all());
@@ -80,19 +53,10 @@ class WorkerController extends Controller
         return redirect(route('workers.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  Worker  $worker
-     * @return RedirectResponse
-     */
     public function destroy(Worker $worker): RedirectResponse
     {
         $worker->delete();
         return redirect(route('workers.index'));
     }
 
-    public function company(){
-        return $this->hasOne(Company::class);
-    }
 }

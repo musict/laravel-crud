@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Company;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,8 +19,8 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('surname', 255);
             $table->string('email', 255);
-            $table->string('phone_number', 20);
-            $table->string('company', 255);
+            $table->string('phone_number', 20)->nullable();
+            $table->foreignIdFor(Company::class);
             $table->timestamps();
         });
     }
@@ -33,4 +34,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('workers');
     }
+
 };

@@ -12,11 +12,11 @@
         <table class="table table-striped table-hover mt-3">
             <thead>
             <tr>
-                <th scope="col">Nazwa</th>
+                <th scope="col">Name</th>
                 <th scope="col">NIP</th>
-                <th scope="col">Adres</th>
-                <th scope="col">Miasto</th>
-                <th scope="col">Kod pocztowy</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">Postal code</th>
                 <th scope="col">Actions</th>
             </tr>
             </thead>

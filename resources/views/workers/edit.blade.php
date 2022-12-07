@@ -39,10 +39,10 @@
 
             <!-- Worker company -->
             <div>
-                <label for="company">Company name</label>
-                <select class="form-select" name="company" id="company" class="mt-2">
+                <label for="company_id">Company name</label>
+                <select class="form-select" name="company_id" id="company_id" class="mt-2">
                     @foreach($companies as $company)
-                        <option value="{{ $company->name }} {{ ($company->name == $worker->company) ? 'selected' : '' }}">
+                        <option value="{{ $company->id }} {{ ($company->id == $worker->company_id) ? 'selected' : '' }}">
                             {{ $company->name }}
                         </option>
                     @endforeach
