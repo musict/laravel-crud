@@ -15,15 +15,6 @@ class CompaniesSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 11; $i++){
-            $data = [
-                'name' => "Company name $i",
-                'nip' => "Company nip $i",
-                'address' => "Company address $i",
-                'city' => "Company city $i",
-                'postal_code' => "Company code $i"
-            ];
-            Company::insert($data);
-        }
+        Company::factory(10)->create();
     }
 }
